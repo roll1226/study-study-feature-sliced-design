@@ -1,11 +1,27 @@
 import App from "@app/App";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 
-describe("Test App.tsx", () => {
+describe("Test App.tsx First Main Page", () => {
   it("check show App", () => {
     render(<App />);
-    const linkElement = screen.getByText(/This is Main Page/i);
-    expect(linkElement).toBeInTheDocument();
+    const element = screen.getByText(/This is Main Page/i);
+    expect(element).toBeInTheDocument();
+  });
+
+  it("Transition App Page", async () => {
+    userEvent.setup();
+    render(<App />);
+    const mainPageLink = screen.getByTestId("main-page-link");
+    const subPageLink = screen.getByTestId("sub-page-link");
+
+    await waitFor(() => userEvent.click(subPageLink));
+    const subPageElement = screen.getByText(/This is Sub Page/i);
+    expect(subPageElement).toBeInTheDocument();
+
+    await waitFor(() => userEvent.click(mainPageLink));
+    const mainPageElement = screen.getByText(/This is Main Page/i);
+    expect(mainPageElement).toBeInTheDocument();
   });
 });
