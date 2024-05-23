@@ -35,7 +35,7 @@ export default {
 src/
 ├── app/
 │   ├── index.tsx
-│   └── routes.ts
+│   └── routes.tsx
 ├── pages/
 │   ├── HomePage/
 │   │   └── index.tsx
