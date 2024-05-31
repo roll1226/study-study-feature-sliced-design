@@ -8,6 +8,10 @@ const Navbar = () => (
     |{" "}
     <Link to="/sub" data-testid="sub-page-link">
       Sub Page
+    </Link>{" "}
+    |{" "}
+    <Link to="login" data-testid="login-page-link">
+      Login Page
     </Link>
   </>
 );

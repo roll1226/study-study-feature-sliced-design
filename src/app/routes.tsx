@@ -1,3 +1,4 @@
+import { LoginPage } from "@pages/LoginPage";
 import { MainPage } from "@pages/MainPage";
 import NotFoundPage from "@pages/NotFoundPage";
 import { SubPage } from "@pages/SubPage";
@@ -8,6 +9,7 @@ const AppRoutes = () => {
     <Routes>
       <Route path="/" element={<MainPage />} />
       <Route path="/sub" element={<SubPage />} />
+      <Route path="login" element={<LoginPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
