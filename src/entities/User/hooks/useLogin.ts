@@ -9,10 +9,10 @@ const useLogin = () => {
   const handleLogin = async () => {
     try {
       await login(email, password);
-      alert("Login successful!");
+      console.log("Login successful!");
     } catch (err) {
       setError(err as Error);
-      alert("Login failed!");
+      console.log("Login failed!");
     }
   };
 
