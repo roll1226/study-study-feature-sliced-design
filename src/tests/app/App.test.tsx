@@ -24,6 +24,7 @@ describe("Test App.tsx First Main Page", () => {
     );
     const mainPageLink = screen.getByTestId("main-page-link");
     const subPageLink = screen.getByTestId("sub-page-link");
+    const loginPageLink = screen.getByTestId("login-page-link");
 
     await waitFor(() => userEvent.click(subPageLink));
     const subPageElement = screen.getByText(/This is Sub Page/i);
@@ -32,6 +33,10 @@ describe("Test App.tsx First Main Page", () => {
     await waitFor(() => userEvent.click(mainPageLink));
     const mainPageElement = screen.getByText(/This is Main Page/i);
     expect(mainPageElement).toBeInTheDocument();
+
+    await waitFor(() => userEvent.click(loginPageLink));
+    const loginPageElement = screen.getByText(/This is Login Page/i);
+    expect(loginPageElement).toBeInTheDocument();
   });
 
   it("Transition Not Found Page", () => {

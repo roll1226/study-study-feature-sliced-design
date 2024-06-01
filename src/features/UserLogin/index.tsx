@@ -18,11 +18,11 @@ const UserLogin = () => {
     data,
     loading,
     error: fetchError,
-  } = useFetch<User>("/api/some-endpoint");
+  } = useFetch<User>("https://jsonplaceholder.typicode.com/users");
 
   return (
     <div>
-      <h2>Login</h2>
+      <h1>This is Login Page</h1>
       <form onSubmit={onSubmit}>
         <input
           type="text"
