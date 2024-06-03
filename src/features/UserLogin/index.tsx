@@ -1,5 +1,6 @@
 import { useUser } from "@entities/User/hooks/useUser";
 import { User } from "@entities/User/models/user";
+import { UserCard } from "@shared/LoginPage/UserCard";
 import useFetch from "@shared/hooks/useFetch";
 import { FormEvent, useState } from "react";
 
@@ -18,7 +19,7 @@ const UserLogin = () => {
     data,
     loading,
     error: fetchError,
-  } = useFetch<User>("https://jsonplaceholder.typicode.com/users");
+  } = useFetch<User[]>("https://jsonplaceholder.typicode.com/users");
 
   return (
     <div>
@@ -44,6 +45,7 @@ const UserLogin = () => {
       {/* 共通のフックのデータ表示 */}
       {loading && <p>Loading...</p>}
       {fetchError && <p style={{ color: "red" }}>{fetchError.message}</p>}
+      {data && data.map((user) => <UserCard user={user} />)}
       {data && <pre>{JSON.stringify(data, null, 2)}</pre>}
     </div>
   );
