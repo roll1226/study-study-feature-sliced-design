@@ -20,7 +20,7 @@ describe("useUser", () => {
     const { result } = renderHook(() => useUser());
 
     await act(async () => {
-      await result.current.handleLogin("test@example.com", "password");
+      await result.current.handleLogin("eve.holt@reqres.in", "cityslicka");
     });
 
     expect(result.current.user).toEqual(userData);
@@ -36,7 +36,7 @@ describe("useUser", () => {
     const { result } = renderHook(() => useUser());
 
     await act(async () => {
-      await result.current.handleLogin("eve.holt@reqres.in", "cityslicka");
+      await result.current.handleLogin("test@example.com", "password");
     });
 
     expect(result.current.user).toBeNull();
