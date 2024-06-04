@@ -3,11 +3,12 @@ import { FCX } from "react";
 
 type Props = {
   user: User;
+  dataTestId?: string;
 };
 
-export const UserCard: FCX<Props> = ({ user }) => {
+export const UserCard: FCX<Props> = ({ user, dataTestId }) => {
   return (
-    <div>
+    <div data-testid={dataTestId}>
       <h1>ID: {user.id}</h1>
       <h2>NAME: {user.name}</h2>
       <h3>USERNAME: {user.username}</h3>
