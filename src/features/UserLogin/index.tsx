@@ -45,7 +45,7 @@ const UserLogin = () => {
       {/* 共通のフックのデータ表示 */}
       {loading && <p>Loading...</p>}
       {fetchError && <p style={{ color: "red" }}>{fetchError.message}</p>}
-      {data && data.map((user) => <UserCard user={user} />)}
+      {data && data.map((user, index) => <UserCard user={user} key={index} />)}
       {data && <pre>{JSON.stringify(data, null, 2)}</pre>}
     </div>
   );
