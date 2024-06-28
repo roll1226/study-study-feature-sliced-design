@@ -14,7 +14,12 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: "./src/tests/setupTests.ts",
     include: ["src/tests/**/*.test.(tsx|ts)"],
-    exclude: [...configDefaults.exclude, "tests/*"],
+    exclude: [
+      ...configDefaults.exclude,
+      "tests/*",
+      "**/dist/**",
+      "src/type.ts",
+    ],
   },
   build: {
     rollupOptions: {
