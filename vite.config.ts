@@ -17,6 +17,7 @@ export default defineConfig({
     exclude: [
       ...configDefaults.exclude,
       "**/assets/**",
+      "**/coverage/**",
       "**/dist/**",
       "src/types/**",
     ],
