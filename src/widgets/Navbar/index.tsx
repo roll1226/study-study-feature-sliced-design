@@ -10,7 +10,7 @@ const Navbar = () => (
       Sub Page
     </Link>{" "}
     |{" "}
-    <Link to="login" data-testid="login-page-link">
+    <Link to="/login" data-testid="login-page-link">
       Login Page
     </Link>
   </>
