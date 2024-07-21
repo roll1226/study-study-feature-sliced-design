@@ -12,7 +12,7 @@ const mockUseUser = useUser as MockedFunction<typeof useUser>;
 vi.mock("@shared/hooks/useFetch");
 const mockUseFetch = useFetch as MockedFunction<typeof useFetch>;
 
-describe("UserLoginコンポーネントのテスト", () => {
+describe("Testing the UserLogin component", () => {
   beforeEach(() => {
     // 各テストの前にフックの戻り値をリセットする
     mockUseUser.mockReset();
@@ -64,7 +64,7 @@ describe("UserLoginコンポーネントのテスト", () => {
     expect(handleLogin).toHaveBeenCalledWith("test@example.com", "password");
   });
 
-  it("エラーメッセージが表示される", () => {
+  it("HandleLogin is called when the login button is clicked", () => {
     const error = new Error("Invalid credentials");
     mockUseUser.mockReturnValue({
       user: null,
@@ -82,7 +82,7 @@ describe("UserLoginコンポーネントのテスト", () => {
     expect(screen.getByText("Invalid credentials")).toBeInTheDocument();
   });
 
-  it("ユーザーがログインしているときにウェルカムメッセージが表示される", () => {
+  it("Welcome message displayed when user logs in", () => {
     const user = { token: "12345" };
     mockUseUser.mockReturnValue({
       user,
@@ -100,7 +100,7 @@ describe("UserLoginコンポーネントのテスト", () => {
     expect(screen.getByText("Welcome, 12345!")).toBeInTheDocument();
   });
 
-  it("fetchフックがデータをロードしている間にローディングメッセージが表示される", () => {
+  it("Loading message while fetch hook is loading data", () => {
     mockUseUser.mockReturnValue({
       user: null,
       error: null,
@@ -117,7 +117,7 @@ describe("UserLoginコンポーネントのテスト", () => {
     expect(screen.getByText("Loading...")).toBeInTheDocument();
   });
 
-  it("fetchフックがエラーメッセージを返したときにエラーメッセージが表示される", () => {
+  it("Error message displayed when fetch hook returns error message", () => {
     const fetchError = new Error("Failed to fetch data");
     mockUseUser.mockReturnValue({
       user: null,
@@ -135,7 +135,7 @@ describe("UserLoginコンポーネントのテスト", () => {
     expect(screen.getByText("Failed to fetch data")).toBeInTheDocument();
   });
 
-  it("fetchフックがデータを返したときにユーザーカードが表示される", () => {
+  it("User card displayed when fetch hook returns data", () => {
     const users = [
       { id: 1, name: "Leanne Graham", username: "Bret" },
       { id: 2, name: "Ervin Howell", username: "Antonette" },

@@ -14,7 +14,7 @@ const mockResponse = (status: number, body: unknown) => {
 };
 
 describe("login", () => {
-  it("ログインに成功した場合、ユーザーデータを返す", async () => {
+  it("Returns user data if login is successful", async () => {
     // モックデータ
     const mockUser: ResultCurrentUser = {
       token: "mock-token",
@@ -32,7 +32,7 @@ describe("login", () => {
     expect(result).toEqual(mockUser);
   });
 
-  it("ログインに失敗した場合、エラーをスローする", async () => {
+  it("Throw error if login fails", async () => {
     // fetch関数をモック化
     global.fetch = vi.fn(() =>
       Promise.resolve(mockResponse(400, { error: "Failed to login" }))
