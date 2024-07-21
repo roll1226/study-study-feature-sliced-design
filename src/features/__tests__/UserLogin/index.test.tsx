@@ -19,7 +19,7 @@ describe("Testing the UserLogin component", () => {
     mockUseFetch.mockReset();
   });
 
-  it("フォームが正しくレンダリングされる", () => {
+  it("Forms render correctly", () => {
     mockUseUser.mockReturnValue({
       user: null,
       error: null,
@@ -38,7 +38,7 @@ describe("Testing the UserLogin component", () => {
     expect(screen.getByText("Login")).toBeInTheDocument();
   });
 
-  it("ログインボタンをクリックしたときにhandleLoginが呼び出される", async () => {
+  it("HandleLogin calls when the login button is clicked", async () => {
     const handleLogin = vi.fn();
     mockUseUser.mockReturnValue({
       user: null,
