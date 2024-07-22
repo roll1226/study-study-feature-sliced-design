@@ -3,7 +3,7 @@ import useFetch from "@shared/hooks/useFetch";
 import { renderHook, waitFor } from "@testing-library/react";
 import { Mock, beforeEach, describe, expect, it, vi } from "vitest";
 
-describe("useFetchカスタムフックのテスト", () => {
+describe("Testing the useFetch custom hook.", () => {
   const mockData = [{ id: 1, name: "John Doe" }];
   const mockUrl = "https://jsonplaceholder.typicode.com/users";
 
@@ -12,7 +12,7 @@ describe("useFetchカスタムフックのテスト", () => {
     global.fetch = vi.fn();
   });
 
-  it("データを正常にフェッチし、loadingがfalseになることを確認する", async () => {
+  it("Successfully fetched data and confirmed that loading is false", async () => {
     (fetch as Mock).mockResolvedValueOnce({
       ok: true,
       json: async () => mockData,
@@ -34,7 +34,7 @@ describe("useFetchカスタムフックのテスト", () => {
     expect(result.current.error).toBeNull();
   });
 
-  it("ネットワークエラー時にエラーメッセージを返すことを確認する", async () => {
+  it("Ensure error messages are returned on network errors", async () => {
     const mockError = new Error("Network response was not ok");
     (fetch as Mock).mockResolvedValueOnce({
       ok: false,
@@ -56,7 +56,7 @@ describe("useFetchカスタムフックのテスト", () => {
     expect(result.current.error).toEqual(mockError);
   });
 
-  it("fetchが例外を投げた場合にエラーメッセージを返すことを確認する", async () => {
+  it("Ensure that fetch returns an error message if it throws an exception", async () => {
     const mockError = new Error("Failed to fetch");
     (fetch as Mock).mockRejectedValueOnce(mockError);
 
