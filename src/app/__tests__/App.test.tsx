@@ -1,22 +1,27 @@
 import App from "@app/App";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { Suspense } from "react";
 import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it } from "vitest";
 
+// setup関数でSuspenseを使用
 const setup = () => {
   userEvent.setup();
   render(
     <MemoryRouter initialEntries={["/"]}>
-      <App />
+      <Suspense fallback={<div>Loading...</div>}>
+        <App />
+      </Suspense>
     </MemoryRouter>
   );
 };
 
 describe("Test App.tsx First Main Page", () => {
-  it("check show App", () => {
+  it("check show App", async () => {
     setup();
-    const element = screen.getByText(/This is Main Page/i);
+    // `findBy`を使って非同期レンダリングを待つ
+    const element = await screen.findByText(/This is Main Page/i);
     expect(element).toBeInTheDocument();
   });
 
@@ -24,8 +29,9 @@ describe("Test App.tsx First Main Page", () => {
     setup();
     const subPageLink = screen.getByTestId("sub-page-link");
 
-    await waitFor(() => userEvent.click(subPageLink));
-    const subPageElement = screen.getByText(/This is Sub Page/i);
+    await userEvent.click(subPageLink);
+    // `findBy`を使って非同期レンダリングを待つ
+    const subPageElement = await screen.findByText(/This is Sub Page/i);
     expect(subPageElement).toBeInTheDocument();
   });
 
@@ -34,12 +40,13 @@ describe("Test App.tsx First Main Page", () => {
     const mainPageLink = screen.getByTestId("main-page-link");
     const subPageLink = screen.getByTestId("sub-page-link");
 
-    await waitFor(() => userEvent.click(subPageLink));
-    const subPageElement = screen.getByText(/This is Sub Page/i);
+    await userEvent.click(subPageLink);
+    const subPageElement = await screen.findByText(/This is Sub Page/i);
     expect(subPageElement).toBeInTheDocument();
 
-    await waitFor(() => userEvent.click(mainPageLink));
-    const mainPageElement = screen.getByText(/This is Main Page/i);
+    await userEvent.click(mainPageLink);
+    // `findBy`を使って非同期レンダリングを待つ
+    const mainPageElement = await screen.findByText(/This is Main Page/i);
     expect(mainPageElement).toBeInTheDocument();
   });
 
@@ -47,18 +54,22 @@ describe("Test App.tsx First Main Page", () => {
     setup();
     const loginPageLink = screen.getByTestId("login-page-link");
 
-    await waitFor(() => userEvent.click(loginPageLink));
-    const loginPageElement = screen.getByText(/This is Login Page/i);
+    await userEvent.click(loginPageLink);
+    // `findBy`を使って非同期レンダリングを待つ
+    const loginPageElement = await screen.findByText(/This is Login Page/i);
     expect(loginPageElement).toBeInTheDocument();
   });
 
-  it("Transition Not Found Page", () => {
+  it("Transition Not Found Page", async () => {
     render(
       <MemoryRouter initialEntries={["/***"]}>
-        <App />
+        <Suspense fallback={<div>Loading...</div>}>
+          <App />
+        </Suspense>
       </MemoryRouter>
     );
-    const element = screen.getByText(/404 - Page Not Found/i);
+    // `findBy`を使って非同期レンダリングを待つ
+    const element = await screen.findByText(/404 - Page Not Found/i);
     expect(element).toBeInTheDocument();
   });
 });
