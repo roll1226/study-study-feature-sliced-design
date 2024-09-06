@@ -15,12 +15,10 @@ const mockResponse = (status: number, body: unknown) => {
 
 describe("login", () => {
   it("Returns user data if login is successful", async () => {
-    // モックデータ
     const mockUser: ResultCurrentUser = {
       token: "mock-token",
     };
 
-    // fetch関数をモック化
     global.fetch = vi.fn(() =>
       Promise.resolve(mockResponse(200, mockUser))
     ) as unknown as typeof fetch;
@@ -28,17 +26,14 @@ describe("login", () => {
     // ログインを実行
     const result = await login("mock@example.com", "password");
 
-    // 期待される結果を確認
     expect(result).toEqual(mockUser);
   });
 
   it("Throw error if login fails", async () => {
-    // fetch関数をモック化
     global.fetch = vi.fn(() =>
       Promise.resolve(mockResponse(400, { error: "Failed to login" }))
     ) as unknown as typeof fetch;
 
-    // エラーハンドリングをテスト
     await expect(login("mock@example.com", "password")).rejects.toThrow(
       "Failed to login"
     );
