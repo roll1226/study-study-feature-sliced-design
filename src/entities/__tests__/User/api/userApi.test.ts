@@ -1,6 +1,6 @@
+import { describe, expect, it, vi } from "vitest";
 import { login } from "@entities/User/api/userApi";
 import { ResultCurrentUser } from "@entities/User/models/currentUser";
-import { describe, expect, it, vi } from "vitest";
 
 // モックレスポンスの型
 const mockResponse = (status: number, body: unknown) => {

@@ -1,7 +1,7 @@
-import { User } from "@entities/User/models/user";
-import { UserCard } from "@shared/LoginPage/UserCard";
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
+import { User } from "@entities/User/models/user";
+import { UserCard } from "@shared/LoginPage/UserCard";
 
 const testUser: User = {
   id: 1,

@@ -1,6 +1,6 @@
-import { lazyImport } from "@shared/utils/lazyImport";
 import { render, screen } from "@testing-library/react";
 import { Suspense } from "react";
+import { lazyImport } from "@shared/utils/lazyImport";
 
 const MockComponent = () => <div>Mock Component</div>;
 

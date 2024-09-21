@@ -1,9 +1,9 @@
-import App from "@app/App";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Suspense } from "react";
 import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it } from "vitest";
+import App from "@app/App";
 
 // setup関数でSuspenseを使用
 const setup = () => {

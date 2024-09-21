@@ -1,5 +1,5 @@
-import { login } from "@entities/User/api/userApi";
 import { useState } from "react";
+import { login } from "@entities/User/api/userApi";
 
 const useLogin = () => {
   const [email, setEmail] = useState<string>("");

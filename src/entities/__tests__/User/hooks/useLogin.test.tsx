@@ -1,7 +1,7 @@
-import useLogin from "@entities/User/hooks/useLogin";
 import "@testing-library/jest-dom";
 import { act, renderHook } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
+import useLogin from "@entities/User/hooks/useLogin";
 
 describe("useLogin", () => {
   it("should handle login", async () => {

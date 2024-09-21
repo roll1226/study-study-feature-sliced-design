@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import Navbar from "@widgets/Navbar";
 import { BrowserRouter } from "react-router-dom";
 import { describe, expect, it } from "vitest";
+import Navbar from "@widgets/Navbar";
 
 describe("Navbar", () => {
   it("renders main page link", () => {

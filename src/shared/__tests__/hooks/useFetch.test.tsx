@@ -1,7 +1,7 @@
-import { User } from "@entities/User/models/user";
-import useFetch from "@shared/hooks/useFetch";
 import { renderHook, waitFor } from "@testing-library/react";
 import { Mock, beforeEach, describe, expect, it, vi } from "vitest";
+import { User } from "@entities/User/models/user";
+import useFetch from "@shared/hooks/useFetch";
 
 describe("Testing the useFetch custom hook.", () => {
   const mockData = [{ id: 1, name: "John Doe" }];

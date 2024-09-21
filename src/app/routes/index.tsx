@@ -1,5 +1,5 @@
-import { Loading } from "@shared/Loading";
 import { FC, Suspense } from "react";
+import { Loading } from "@shared/Loading";
 import useAppRoutes from "./useAppRoutes";
 
 const Router: FC = () => {

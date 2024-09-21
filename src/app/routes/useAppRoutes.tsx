@@ -1,6 +1,5 @@
-import { lazyImport } from "@shared/utils/lazyImport";
-
 import { useRoutes } from "react-router-dom";
+import { lazyImport } from "@shared/utils/lazyImport";
 
 const { LoginPage } = lazyImport(() => import("@pages/LoginPage"), "LoginPage");
 const { MainPage } = lazyImport(() => import("@pages/MainPage"), "MainPage");

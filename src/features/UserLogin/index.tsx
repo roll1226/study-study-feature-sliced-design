@@ -1,8 +1,8 @@
+import { FormEvent, useState } from "react";
 import { useUser } from "@entities/User/hooks/useUser";
 import { User } from "@entities/User/models/user";
-import { UserCard } from "@shared/LoginPage/UserCard";
 import useFetch from "@shared/hooks/useFetch";
-import { FormEvent, useState } from "react";
+import { UserCard } from "@shared/LoginPage/UserCard";
 
 const UserLogin = () => {
   const { user, error, handleLogin } = useUser();

@@ -1,8 +1,8 @@
-import { useUser } from "@entities/User/hooks/useUser";
-import UserLogin from "@features/UserLogin";
-import useFetch from "@shared/hooks/useFetch";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { MockedFunction, beforeEach, describe, expect, it, vi } from "vitest";
+import UserLogin from "@features/UserLogin";
+import { useUser } from "@entities/User/hooks/useUser";
+import useFetch from "@shared/hooks/useFetch";
 
 // useUserフックのモック
 vi.mock("@entities/User/hooks/useUser");

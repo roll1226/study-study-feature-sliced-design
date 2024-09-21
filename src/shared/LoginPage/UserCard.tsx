@@ -1,5 +1,5 @@
-import { User } from "@entities/User/models/user";
 import { FCX } from "react";
+import { User } from "@entities/User/models/user";
 
 type Props = {
   user: User;
