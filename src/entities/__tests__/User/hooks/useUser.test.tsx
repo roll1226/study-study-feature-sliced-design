@@ -1,8 +1,8 @@
+import { act, renderHook } from "@testing-library/react";
+import { describe, expect, it, vi } from "vitest";
 import { login } from "@entities/User/api/userApi";
 import { useUser } from "@entities/User/hooks/useUser";
 import { ResultCurrentUser } from "@entities/User/models/currentUser";
-import { act, renderHook } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
 
 vi.mock("@entities/User/api/userApi.ts", () => ({
   login: vi.fn(),
