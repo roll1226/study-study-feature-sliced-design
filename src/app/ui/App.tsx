@@ -1,6 +1,6 @@
-import "@app/App.css";
+import "@app/ui/App.css";
+import Router from "@app/providers/Route";
 import Navbar from "@widgets/Navbar";
-import Router from "./routes";
 
 function App() {
   return (
