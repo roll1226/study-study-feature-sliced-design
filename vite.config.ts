@@ -19,7 +19,7 @@ export default defineConfig({
       "**/assets/**",
       "**/coverage/**",
       "**/dist/**",
-      "src/types/**",
+      "src/app/types/**",
     ],
   },
   build: {
